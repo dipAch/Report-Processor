@@ -1,0 +1,107 @@
+rubyContra - rubycoderguy
+**------------------------------------------------------- The Book Of Ruby - Huw Collingbourne ---------------------------------------------------**
+
+##-------------------------------------------------- Chapter 1 - Strings, Numbers, Classes and Objects -------------------------------------------##
+
+	1. Ruby is an easy language to use.
+	2. A simple program can be of the form,
+		->	puts 'Hello Dipankar'
+	3. The above example program does not need any headers or class definitons, or import sections or 'main' functions.
+	    That's all in its entirety.$$$> Wrote this through Ruby!!!
+
+>>> RUBY ON RAILS -- ZombieLand :
+
+* We will be trying to create a Twitter like application.
+
+*We will be using a Relational Database,
+	The table will  be named -> tweets
+
+* Table Structure : tweets -> Tweet (class [or a model for the table or schema]), defined in : app/models/tweet.rb
+	id	|	status	|	zombie
+
+
+* To retrieve a record with a given ID, we can use the statement,
+	t = Tweet.find(1) # Tweet with ID of 1
+
+* CRUD -> Create, Read, Update and Delete (In Database Terminology).
+
+* For Creating a new tweet :
+	t = Tweet.new
+	t.status = "I <3 brains."
+	t.zombie = "Frank"
+	t.save
+
+	# Alternative 1
+	t = Tweet.new(status: "I <3 brains.", zombie: "Frank")
+	t.save
+
+	# Alternative 2
+	Tweet.create(status: "I <3 brains.", zombie: "Frank")
+
+* For Reading a tweet :
+	t = Tweet.find(3) # Retrieves the tweet having ID of 3
+
+	# Alternative Use Cases
+	
+	> Tweet.find(3, 4, 5) # Returns an array of tweet objects having the specified ID's
+	> Tweet.first
+	> Tweet.last
+	> Tweet.all
+	> Tweet.count
+	> Tweet.order(:zombie)
+	> Tweet.limit(10)
+	> Tweet.where(zombie: "Ash")
+
+
+* For Updating a tweet :
+	t = Tweet.find(3)
+	t.zombie = "Jimmo"
+	t.save
+
+	# Alternative 1
+	t = Tweet.find(2)
+	t.attributes = {
+	status: "Hey, Whatsup?",
+	zombie: "Anne"}
+	t.save
+
+	# Alternative 2
+	t = Tweet.find(2)
+	t.update(
+	status: "Hey, Whatsup?",
+	zombie: "Anne")
+
+* For Deleting a tweet :
+	t = Tweet.find(3)
+	t.destroy
+	t
+
+	# Alternative 1
+	Tweet.find(2).destroy
+
+	# For destroying all the tweets
+	Tweet.destroy_all
+
+* Method Chaining :
+
+	Eg.> Tweet.where(zombie: "Ash").order(:status).limit(10)
+	      > Tweet.where(zombie: "Ash").first
+
+Genuine Problem - 
+Steps:
+
+Do you have the WAT update installed, KB971033? If yes you may have got flagged as non-genuine, in order to become genuine again just do the following.
+
+* Launch the loader application and select to uninstall
+* Restart the PC
+* Install the loader and restart the PC
+* Visit the following website to revalidate Windows: www.microsoft.com/genuine/
+
+
+Is Windows failing to boot after you installed the loader? Just do the following.
+
+* Boot up the PC from your Windows installation disk
+* Select the "Repair your computer" option
+* Select "Command Prompt"
+* Input "bootsect.exe /nt60 SYS /force" (without quotes)
+* Restart the PC
